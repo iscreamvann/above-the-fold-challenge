@@ -5,7 +5,7 @@ import styled  from 'styled-components';
 
 
 const MainStyled = styled.main`
-padding-top: 52px;
+padding-top: 60px;
 `
 
 const Home = () => {

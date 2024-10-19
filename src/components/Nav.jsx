@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 import { useState } from 'react'
+import theme from '../theme'
 
 const NavStyled = styled.nav`
 //both
-background-color: pink;
+background-color: ${theme.primary};
 position: fixed;
 top: 0;
 width: 100%;
-min-height: 60px;
+height: 60px;
+max-height: 60px;
 
 //mobile
 @media  (max-width: 768px) {
@@ -36,6 +38,7 @@ box-sizing:  border-box;
 //mobile
 @media  (max-width: 768px) {
 width: 100%;
+justify-content:  space-between;
 } 
 //desktop
 @media  (min-width: 769px) {
@@ -52,7 +55,14 @@ display: flex;
 align-items: center;
 
 
-
+//mobile
+@media  (max-width: 768px) {
+height: calc(100dvh - 60px);
+flex-direction:  column;
+&.closed{
+display: none;
+}
+} 
 //desktop
 @media  (min-width: 769px) {
 justify-content: flex-end;
@@ -88,12 +98,13 @@ font-weight: 800;
 }
 `
 const ImgStyled =  styled.img`
-width: 200px;
+width: 160px;
 `
 const ButtonStyled =  styled.button`
 width: 50px;
-height:  30px;
+height:  50px;
 background-color: aqua;
+border: none;
 
 
 //mobile
@@ -120,7 +131,7 @@ const Nav = () => {
 <ImgStyled src='/assets/Logo.svg'/>
 <ButtonStyled onClick={toggleOpenClose}>{isOpen.toString()}</ButtonStyled>
 </HeaderStyled>
-<UlStyled>
+<UlStyled className={isOpen? "open" : "closed"}> 
     <LiStyled>
         <AStyled>Find Tutors</AStyled>
     </LiStyled>
