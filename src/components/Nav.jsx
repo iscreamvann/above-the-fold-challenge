@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import theme from '../theme';
+import spacing  from '../spacing';
 
 const NavStyled = styled.nav`
   background-color: ${theme.secondary};
@@ -9,8 +10,6 @@ const NavStyled = styled.nav`
   width: 100%;
   height: 80px;
   max-height: 80px;
-
-  @media (max-width: 768px) {}
 
   @media (min-width: 769px) {
     display: flex;
@@ -25,11 +24,13 @@ const HeaderStyled = styled.header`
   padding: 0 10px;
   box-sizing: border-box;
 
+  /* Mobile layout */
   @media (max-width: 768px) {
     width: 100%;
     justify-content: space-between;
   }
 
+  /* Desktop layout */
   @media (min-width: 769px) {
     min-width: 300px;
     flex: 1;
@@ -45,15 +46,17 @@ const UlStyled = styled.ul`
   padding-top: 80px;
   background-color: ${theme.secondary};
 
+  /* Mobile layout */
   @media (max-width: 768px) {
     height: calc(100dvh - 80px);
     flex-direction: column;
-    
+
     &.closed {
       display: none;
     }
   }
 
+  /* Desktop layout */
   @media (min-width: 769px) {
     justify-content: flex-end;
     padding: 0 20px;
@@ -96,7 +99,12 @@ const AStyled = styled.a`
 
 const ImgStyled = styled.img`
   width: 160px;
-  margin-left: 30px;
+
+
+    /* Desktop layout */
+  @media (min-width: 769px) {
+  margin-left: ${spacing.xl};
+  }
 `;
 
 const ButtonStyled = styled.button`
@@ -105,6 +113,7 @@ const ButtonStyled = styled.button`
   background-color: ${theme.secondary};
   border: none;
 
+  /* Desktop layout */
   @media (min-width: 769px) {
     display: none;
   }

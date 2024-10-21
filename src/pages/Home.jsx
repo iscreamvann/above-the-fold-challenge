@@ -1,11 +1,14 @@
 import Nav from '../components/Nav'
 import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
+import  SectionThree from '../components/SectionThree';
 import styled  from 'styled-components';
+import theme  from '../theme';
 
 
 const MainStyled = styled.main`
 padding-top: 60px;
+background-color: ${theme.secondary};
 `
 
 const Home = () => {
@@ -15,6 +18,7 @@ const Home = () => {
     <MainStyled>
         <SectionOne/>
         <SectionTwo/>
+        <SectionThree/>
     </MainStyled>
     </div>
   );
