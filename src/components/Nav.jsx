@@ -105,6 +105,11 @@ const ImgStyled = styled.img`
   @media (min-width: 769px) {
   margin-left: ${spacing.xl};
   }
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+  margin-left: ${spacing.l};
+  }
 `;
 
 const ButtonStyled = styled.button`

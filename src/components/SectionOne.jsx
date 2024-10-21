@@ -18,6 +18,11 @@ const SectionOneStyled = styled.section`
     padding: ${spacing.xl};
     gap:  ${spacing.xl};
   }
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+  padding:  ${spacing.l};
+  }
 `;
 
 const MainSection = styled.div`
@@ -40,31 +45,47 @@ const MainSection = styled.div`
 
 const H1Styled = styled.h1`
   font-family: 'Fraunces', sans-serif;
-  font-weight: 700;
 
 
     /* Desktop layout */
   @media (min-width: 769px) {
     font-size: 56px;
+      font-weight: 700;
   }
 
   /* Mobile layout */
   @media (max-width: 768px) {
     font-size: 48px;
+    font-weight: 600;
   }
 `;
 
 const PStyled = styled.p`
   font-size: 18px;
+  line-height:  1.6;
+
 
   /* Desktop layout */
   @media (min-width: 769px) {
     margin-bottom: 20px;
   }
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+margin-bottom: 10px;
+  }
 `;
 
 const ButtonWrapperStyled = styled.div`
   width: 100%;
+
+      /* Mobile layout */
+  @media (max-width: 768px) {
+    display: flex;
+    &  > button:first-child {
+    flex: 1;
+    }
+  }
 `;
 
 const ButtonStyled = styled.button`

@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import theme from '../theme';
 
-const BLOCK_HEIGHT = '200px';
+const BLOCK_HEIGHT = '150px';
 
 const SectionTwoStyled = styled.section`
   display: flex;
   background-color: ${theme.background};
+
+
   /* Mobile layout */
   @media (max-width: 768px) {
     flex-direction: column-reverse;
@@ -20,59 +22,105 @@ const SectionTwoStyled = styled.section`
 
 const BlockStyled = styled.div`
   min-width: ${BLOCK_HEIGHT};
-  height: ${BLOCK_HEIGHT};
   display: inline-block;
 
   /* Mobile layout */
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     &.desktopOnly {
       display: none;
     }
+  }
+
+  /* Desktop layout */
+  @media (min-width: 769px) {
+  height: ${BLOCK_HEIGHT};
   }
 `;
 
 const PurpleTextStyled = styled.p`
   color: white;
   background-color: ${theme.highlight};
-  height: ${BLOCK_HEIGHT};
   padding: 60px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+  border-radius: 0px 15vw 15vw 15vw;
+  height: 30vw;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 769px) {
   border-radius: 0px calc(${BLOCK_HEIGHT} / 2);
+  height: ${BLOCK_HEIGHT};
+  }
   
 `;
 
 const OrangeBallStyled = styled.div`
   background-color: ${theme.accent};
-  height: ${BLOCK_HEIGHT};
-  width: ${BLOCK_HEIGHT};
   border-radius: 100%;
   display: inline-block;
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+  height: 30vw;
+  width: 30vw;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 769px) {
+  height: ${BLOCK_HEIGHT};
+  width: ${BLOCK_HEIGHT};
+  }
 `;
 
 const PurpleLeafStyled = styled.div`
   height: ${BLOCK_HEIGHT};
   width: ${BLOCK_HEIGHT};
   background-color: ${theme.highlight};
-  border-radius: calc(${BLOCK_HEIGHT} / 2) 0px;
   display: inline-block;
+
+    /* Mobile layout */
+  @media (max-width: 768px) {
+  height: 30vw;
+  width: 30vw;
+  border-radius: 0px 15vw;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 769px) {
+  height: ${BLOCK_HEIGHT};
+  width: ${BLOCK_HEIGHT};
+  border-radius: calc(${BLOCK_HEIGHT} / 2) 0px;
+  }
 `;
 
 const BoyPictureStyled = styled.img`
   display: inline-block;
-  height: ${BLOCK_HEIGHT};
-  width: 300px;
-  background-color: green;
-  border-top-right-radius: calc(${BLOCK_HEIGHT} / 2);
    object-fit: cover;
+
+     /* Mobile layout */
+  @media (max-width: 768px) {
+  height: 30vw;
+  width: 40vw;
+  border-top-right-radius: 15vw;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 769px) {
+  height: ${BLOCK_HEIGHT};
+  width: 240px;
+  border-top-right-radius: calc(${BLOCK_HEIGHT} / 2);
+  }
 `;
 
 const GirlPictureStyled = styled.img`
   display: inline-block;
   height: ${BLOCK_HEIGHT};
   width: 300px;
-  background-color: green;
   border-radius: calc(${BLOCK_HEIGHT} / 2);
    object-fit: cover;
 `;
