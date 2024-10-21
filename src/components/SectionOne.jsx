@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../theme';
-import spacing  from '../spacing';
-import ContainerStyled  from './Container';
+import spacing from '../spacing';
+import ContainerStyled from './Container';
 
 const SectionOneStyled = styled(ContainerStyled)`
   background-color: ${theme.background};
@@ -11,36 +11,31 @@ const SectionOneStyled = styled(ContainerStyled)`
   margin-top: 20px;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
-  box-sizing:  border-box;
+  box-sizing: border-box;
   position: relative;
 
-  /* Desktop layout */
   @media (min-width: 769px) {
     flex-direction: row;
     padding: ${spacing.xl};
-    gap:  ${spacing.xl};
-    
+    gap: ${spacing.xl};
   }
 
-    /* Mobile layout */
   @media (max-width: 768px) {
-  padding:  ${spacing.l};
+    padding: ${spacing.l};
   }
 `;
 
 const MainSection = styled.div`
   flex: 1;
   margin: 10px;
-    z-index: 1;
+  z-index: 1;
 
-  /* Desktop layout */
   @media (min-width: 769px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  /* Mobile layout */
   @media (max-width: 768px) {
     width: calc(100% - 20px);
     margin: 10px;
@@ -49,16 +44,12 @@ const MainSection = styled.div`
 
 const H1Styled = styled.h1`
   font-family: 'Fraunces', sans-serif;
-  
 
-
-    /* Desktop layout */
   @media (min-width: 769px) {
     font-size: 56px;
-      font-weight: 700;
+    font-weight: 700;
   }
 
-  /* Mobile layout */
   @media (max-width: 768px) {
     font-size: 48px;
     font-weight: 600;
@@ -67,34 +58,30 @@ const H1Styled = styled.h1`
 
 const PStyled = styled.p`
   font-size: 18px;
-  line-height:  1.6;
+  line-height: 1.6;
 
-
-  /* Desktop layout */
   @media (min-width: 769px) {
     margin-bottom: 20px;
   }
 
-    /* Mobile layout */
   @media (max-width: 768px) {
-margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 `;
 
 const ButtonWrapperStyled = styled.div`
   width: 100%;
 
-      /* Mobile layout */
   @media (max-width: 768px) {
     display: flex;
-    &  > button:first-child {
-    flex: 1;
+
+    & > button:first-child {
+      flex: 1;
     }
   }
 
-      /* Desktop layout */
   @media (min-width: 769px) {
-  display: flex;
+    display: flex;
   }
 `;
 
@@ -109,12 +96,12 @@ const ButtonStyled = styled.button`
   background-color: ${theme.primary};
   border: none;
   display: inline-block;
-  margin-top:  20px;
+  margin-top: 20px;
   cursor: pointer;
-  position:  relative;
+  position: relative;
 
-  &::after{
-    content:  "";
+  &::after {
+    content: "";
     width: 50px;
     height: 50px;
     position: absolute;
@@ -129,45 +116,42 @@ const ButtonStyled = styled.button`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-              &:hover {
-              &::after{
-                  transform: rotate(-45deg);
-              }
-  }
-  &::after{
+    &:hover {
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &::after {
       transition: transform 0.2s ease;
-
+    }
   }
 
-  
+  @media (max-width: 768px) {
+  margin-right: 50px;
   }
-
-
 `;
 
-const SquiggleImageStyled =  styled.img`
+const SquiggleImageStyled = styled.img`
   position: absolute;
 
-    /* Desktop layout */
   @media (min-width: 769px) {
-  width: 120px;
-  bottom:  ${spacing.m};
-  right:  ${spacing.l};
+    width: 120px;
+    bottom: ${spacing.m};
+    right: ${spacing.l};
   }
 
-  /* Mobile layout */
   @media (max-width: 768px) {
     width: 100px;
-    top:   ${spacing.xl};
+    top: ${spacing.xl};
     right: ${spacing.l};
-    
   }
-`
+`;
 
 const SectionOne = () => {
   return (
     <SectionOneStyled>
-      <SquiggleImageStyled alt='Decorative Squiggle' src='/assets/Squiggle.webp'/>
+      <SquiggleImageStyled alt="Decorative Squiggle" src="/assets/Squiggle.webp" />
       <MainSection>
         <H1Styled>
           District-wide,<br />
@@ -181,7 +165,6 @@ const SectionOne = () => {
         </PStyled>
         <ButtonWrapperStyled>
           <ButtonStyled>Find a tutor</ButtonStyled>
-          
         </ButtonWrapperStyled>
       </MainSection>
     </SectionOneStyled>
