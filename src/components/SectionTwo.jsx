@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import theme from '../theme';
+import ContainerStyled from './Container';
 
 const BLOCK_HEIGHT = '150px';
 
-const SectionTwoStyled = styled.section`
+const SectionTwoStyled = styled(ContainerStyled)`
   display: flex;
   background-color: ${theme.background};
 
@@ -24,8 +25,10 @@ const BlockStyled = styled.div`
   min-width: ${BLOCK_HEIGHT};
   display: inline-block;
 
+
   /* Mobile layout */
   @media (max-width: 1100px) {
+    height: 30vw;
     &.desktopOnly {
       display: none;
     }
@@ -135,11 +138,11 @@ const SectionTwo = () => {
       </BlockStyled>
       <BlockStyled>
         <OrangeBallStyled />
-        <BoyPictureStyled src='/assets/Boy.webp'/>
+        <BoyPictureStyled alt='Boy Learning' src='/assets/Boy.webp'/>
         <PurpleLeafStyled />
       </BlockStyled>
       <BlockStyled className='desktopOnly'>
-        <GirlPictureStyled src='/assets/Girl.webp'/>
+        <GirlPictureStyled alt='Girl Learning' src='/assets/Girl.webp'/>
       </BlockStyled>
     </SectionTwoStyled>
   );

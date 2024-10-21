@@ -9,6 +9,7 @@ import theme  from '../theme';
 const MainStyled = styled.main`
 padding-top: 60px;
 background-color: ${theme.secondary};
+min-height: 100dvh;
 `
 
 const Home = () => {

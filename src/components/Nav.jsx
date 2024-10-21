@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import theme from '../theme';
-import spacing  from '../spacing';
+import spacing from '../spacing';
 
 const NavStyled = styled.nav`
   background-color: ${theme.secondary};
@@ -10,6 +10,10 @@ const NavStyled = styled.nav`
   width: 100%;
   height: 80px;
   max-height: 80px;
+  max-width: 1600px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
 
   @media (min-width: 769px) {
     display: flex;
@@ -24,13 +28,11 @@ const HeaderStyled = styled.header`
   padding: 0 10px;
   box-sizing: border-box;
 
-  /* Mobile layout */
   @media (max-width: 768px) {
     width: 100%;
     justify-content: space-between;
   }
 
-  /* Desktop layout */
   @media (min-width: 769px) {
     min-width: 300px;
     flex: 1;
@@ -46,7 +48,6 @@ const UlStyled = styled.ul`
   padding-top: 80px;
   background-color: ${theme.secondary};
 
-  /* Mobile layout */
   @media (max-width: 768px) {
     height: calc(100dvh - 80px);
     flex-direction: column;
@@ -56,7 +57,6 @@ const UlStyled = styled.ul`
     }
   }
 
-  /* Desktop layout */
   @media (min-width: 769px) {
     justify-content: flex-end;
     padding: 0 20px;
@@ -80,35 +80,41 @@ const AStyled = styled.a`
   justify-content: center;
   margin-left: 8px;
   background-color: transparent;
-  transition: transform 0.3s ease;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.5px;
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  text-align: center;
 
   &.secondary {
     background-color: ${theme.accent};
     font-weight: 600;
     padding: 0 30px;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    &:hover {
+      font-weight: 600;
+    }
+  }
 `;
 
 const ImgStyled = styled.img`
   width: 160px;
 
-
-    /* Desktop layout */
   @media (min-width: 769px) {
-  margin-left: ${spacing.xl};
+    margin-left: ${spacing.xl};
   }
 
-    /* Mobile layout */
   @media (max-width: 768px) {
-  margin-left: ${spacing.l};
+    margin-left: ${spacing.l};
   }
 `;
 
@@ -118,7 +124,6 @@ const ButtonStyled = styled.button`
   background-color: ${theme.secondary};
   border: none;
 
-  /* Desktop layout */
   @media (min-width: 769px) {
     display: none;
   }
@@ -126,15 +131,18 @@ const ButtonStyled = styled.button`
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleOpenClose = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleOpenClose = () => setIsOpen(!isOpen);
 
   return (
     <NavStyled>
       <HeaderStyled>
         <ImgStyled src='/assets/Logo.svg' />
-        <ButtonStyled onClick={toggleOpenClose}>
+        <ButtonStyled
+          aria-label='menu toggle'
+          aria-controls='Menu Toggle'
+          aria-expanded={isOpen}
+          onClick={toggleOpenClose}
+        >
           {!isOpen ? (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
               <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
@@ -148,22 +156,22 @@ const Nav = () => {
       </HeaderStyled>
       <UlStyled className={isOpen ? "open" : "closed"}>
         <LiStyled>
-          <AStyled>Find Tutors</AStyled>
+          <AStyled aria-label='Find Tutors' tabIndex={1}>Find Tutors</AStyled>
         </LiStyled>
         <LiStyled>
-          <AStyled>For Schools</AStyled>
+          <AStyled aria-label='For Schools' tabIndex={2}>For Schools</AStyled>
         </LiStyled>
         <LiStyled>
-          <AStyled>Find Courses</AStyled>
+          <AStyled aria-label='Find Courses' tabIndex={3}>Find Courses</AStyled>
         </LiStyled>
         <LiStyled>
-          <AStyled>Find Answers</AStyled>
+          <AStyled aria-label='Find Answers' tabIndex={4}>Find Answers</AStyled>
         </LiStyled>
         <LiStyled>
-          <AStyled>Jobs</AStyled>
+          <AStyled aria-label='Jobs' tabIndex={5}>Jobs</AStyled>
         </LiStyled>
         <LiStyled>
-          <AStyled className='secondary'>Sign In</AStyled>
+          <AStyled aria-label='Sign In' tabIndex={6} className='secondary'>Sign In</AStyled>
         </LiStyled>
       </UlStyled>
     </NavStyled>

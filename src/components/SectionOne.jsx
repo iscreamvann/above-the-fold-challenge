@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../theme';
 import spacing  from '../spacing';
+import ContainerStyled  from './Container';
 
-const SectionOneStyled = styled.section`
+const SectionOneStyled = styled(ContainerStyled)`
   background-color: ${theme.background};
   display: flex;
   flex-direction: column;
@@ -11,12 +12,14 @@ const SectionOneStyled = styled.section`
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   box-sizing:  border-box;
+  position: relative;
 
   /* Desktop layout */
   @media (min-width: 769px) {
     flex-direction: row;
     padding: ${spacing.xl};
     gap:  ${spacing.xl};
+    
   }
 
     /* Mobile layout */
@@ -28,6 +31,7 @@ const SectionOneStyled = styled.section`
 const MainSection = styled.div`
   flex: 1;
   margin: 10px;
+    z-index: 1;
 
   /* Desktop layout */
   @media (min-width: 769px) {
@@ -45,6 +49,7 @@ const MainSection = styled.div`
 
 const H1Styled = styled.h1`
   font-family: 'Fraunces', sans-serif;
+  
 
 
     /* Desktop layout */
@@ -86,6 +91,11 @@ const ButtonWrapperStyled = styled.div`
     flex: 1;
     }
   }
+
+      /* Desktop layout */
+  @media (min-width: 769px) {
+  display: flex;
+  }
 `;
 
 const ButtonStyled = styled.button`
@@ -100,16 +110,64 @@ const ButtonStyled = styled.button`
   border: none;
   display: inline-block;
   margin-top:  20px;
+  cursor: pointer;
+  position:  relative;
 
-  &.circleButton {
+  &::after{
+    content:  "";
     width: 50px;
-    padding: 0;
+    height: 50px;
+    position: absolute;
+    background-color: ${theme.primary};
+    border-radius: 50%;
+    left: 100%;
+    top: 0;
+    background-image: url('/assets/forward-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+              &:hover {
+              &::after{
+                  transform: rotate(-45deg);
+              }
+  }
+  &::after{
+      transition: transform 0.2s ease;
+
+  }
+
+  
+  }
+
+
 `;
+
+const SquiggleImageStyled =  styled.img`
+  position: absolute;
+
+    /* Desktop layout */
+  @media (min-width: 769px) {
+  width: 120px;
+  bottom:  ${spacing.m};
+  right:  ${spacing.l};
+  }
+
+  /* Mobile layout */
+  @media (max-width: 768px) {
+    width: 100px;
+    top:   ${spacing.xl};
+    right: ${spacing.l};
+    
+  }
+`
 
 const SectionOne = () => {
   return (
     <SectionOneStyled>
+      <SquiggleImageStyled alt='Decorative Squiggle' src='/assets/Squiggle.webp'/>
       <MainSection>
         <H1Styled>
           District-wide,<br />
@@ -123,7 +181,7 @@ const SectionOne = () => {
         </PStyled>
         <ButtonWrapperStyled>
           <ButtonStyled>Find a tutor</ButtonStyled>
-          <ButtonStyled className='circleButton'>&</ButtonStyled>
+          
         </ButtonWrapperStyled>
       </MainSection>
     </SectionOneStyled>
