@@ -58,15 +58,19 @@ const UlStyled = styled.ul`
   }
 
   @media (min-width: 769px) {
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0 20px;
-    padding-top: 80px;
+
+    & li {
+      margin-left: 20px;
+    }
 
     & li:last-child {
       margin-left: 20px;
     }
   }
 `;
+
 
 const LiStyled = styled.li`
   margin-right: 8px;
