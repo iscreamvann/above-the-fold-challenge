@@ -115,7 +115,7 @@ const ButtonStyled = styled.button`
     background-size: 24px;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     &:hover {
       &::after {
         transform: rotate(-45deg);
